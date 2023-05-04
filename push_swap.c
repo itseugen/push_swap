@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/03 15:38:05 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:52:50 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,29 @@ TODO: rrr : rra and rrb at the same time.
 * add from b to a (backwards from where it was added)
 ! If needed add other sort alghorithms for n < 6
 */
+/*
+Black \033[0;30m
+Red \033[0;31m
+Green \033[0;32m
+Yellow \033[0;33m
+Blue \033[0;34m
+Purple \033[0;35m
+Cyan \033[0;36m
+White \033[0;37m
+*/
+
 
 #include "push_swap.h"
 
 int	main(int argc, char *argv[])
 {
+	ft_printf("argc: %d\nargv[1]: %s\n", argc, argv[1]);
 	if (argc <= 1)
 		return (FINISHED);
 	if (argc <= 2 && !ft_strchr(argv[1], ' '))
 		return (FINISHED);
 	//TODO: Choose how to save data, save data and check if all int, no duplicates, no too big/small Numbers
+	if (check_argv(argc, argv) == WRONG_INPUT)
+		return (WRONG_INPUT);
+	ft_printf("\033[0;32mIs correct!\n");
 }

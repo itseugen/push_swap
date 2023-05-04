@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/03 15:27:51 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/04 14:27:12 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,26 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = push_swap.c
+SOURCE = push_swap.c check_input.c
 
 OBJS = $(SOURCE:.c=.o)
 
+LIBFT_GIT	=	https://github.com/itseugen/c_library
+LIBFT_DIR	=	./libft
+LIBFT_LIB	=	libft.a
+LIBFT		=	$(LIBFT_DIR)/$(LIBFT_LIB)
+
 all: $(NAME)
 
-$(NAME): $(SOURCE)
+$(NAME): $(LIBFT) $(SOURCE)
 	@cd libft && make
 	$(CC) $(CFLAGS) -o $(NAME) $(SOURCE) ./libft/libft.a
+
+$(LIBFT):
+	git clone $(LIBFT_GIT) $(LIBFT_DIR); make -C $(LIBFT_DIR)
+
+libclean:
+	rm -rf $(LIBFT_DIR)
 
 clean:
 	@rm -f $(OBJS)
