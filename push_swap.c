@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/04 15:52:50 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:16:33 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int	main(int argc, char *argv[])
 	//TODO: Choose how to save data, save data and check if all int, no duplicates, no too big/small Numbers
 	if (check_argv(argc, argv) == WRONG_INPUT)
 		return (WRONG_INPUT);
-	ft_printf("\033[0;32mIs correct!\n");
+	green();
+	ft_printf("Is correct!\n");
 }
