@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/04 15:51:47 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:54:47 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,27 @@
 #  define ALLOC_FAIL -1
 # endif
 
-int	check_argv(int argc, char *argv[]);
-int	isdigit_pm(char *s, int (*f)(int));
+typedef struct s_stack
+{
+	int				val;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}	t_stack;
+
+/* ************************************************************************** */
+/*                               List functions                               */
+/* ************************************************************************** */
+
+int		push(t_stack **stack, int value);
+int		pop(t_stack **stack);
+void	print_list(t_stack *head);
+void	free_list(t_stack **stack);
+
+/* ************************************************************************** */
+/*                              Stack functions                               */
+/* ************************************************************************** */
+
+int		check_argv(int argc, char *argv[]);
+t_stack	*init_stack(int argc, char *argv[]);
 
 #endif

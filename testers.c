@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   testers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/05 18:13:18 by eweiberl         ###   ########.fr       */
+/*   Created: 2023/05/05 15:38:50 by eweiberl          #+#    #+#             */
+/*   Updated: 2023/05/05 17:07:03 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	isdigit_pm(char *s, int (*f)(int));
-
-int	check_argv(int argc, char *argv[])
+void	print_list(t_stack *head)
 {
-	int	i;
+	t_stack	*current;
+	int		doonce;
 
-	i = 1;
-	while (i < argc)
+	doonce = 1;
+	current = head;
+	if (current == NULL)
 	{
-		if (isdigit_pm(argv[i], ft_isdigit) == 0)
-			return (WRONG_INPUT);
-	i++;
+		red();
+		ft_printf("The list is empty\n");
+		return ;
 	}
-	return (0);
-}
-
-static int	isdigit_pm(char *s, int (*f)(int))
-{
-	unsigned int	i;
-
-	i = 0;
-	if (s[i] == '+' || s[i] == '-')
-		i++;
-	while (s[i])
+	white();
+	ft_printf("The list:\n");
+	while (doonce == 1 || current != head)
 	{
-		if (f((s[i])) != 1)
-			return (0);
-		i++;
+		doonce = 0;
+		green();
+		ft_printf("Value: %d\n", current->val);
+		current = current->next;
 	}
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/04 16:16:33 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:48:32 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,20 @@ White \033[0;37m
 int	main(int argc, char *argv[])
 {
 	ft_printf("argc: %d\nargv[1]: %s\n", argc, argv[1]);
-	if (argc <= 1)
+	if (argc <= 1 || (!ft_strchr(argv[1], ' ')
+			&& check_argv(2, argv) != WRONG_INPUT))
 		return (FINISHED);
-	if (argc <= 2 && !ft_strchr(argv[1], ' '))
-		return (FINISHED);
-	//TODO: Choose how to save data, save data and check if all int, no duplicates, no too big/small Numbers
-	if (check_argv(argc, argv) == WRONG_INPUT)
-		return (WRONG_INPUT);
-	green();
-	ft_printf("Is correct!\n");
+	if (!ft_strchr(argv[1], ' ') && check_argv(2, argv) != WRONG_INPUT)
+		return (ft_printf("Error\n"), WRONG_INPUT);
+	//TODO: no duplicates, no too big/small Numbers
+
+	// !Test!
+	t_stack	*stack1 = NULL;
+	stack1 = init_stack(argc, argv);
+	if (stack1 == NULL)
+		return (ft_printf("Error\n"), WRONG_INPUT);
+	print_list(stack1);
+	free_list(&stack1);
+	print_list(stack1);
+	return (FINISHED);
 }
