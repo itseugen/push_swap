@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/07 17:09:50 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:10:22 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ t_stack	*init_stack(int argc, char *argv[]);
 /* ************************************************************************** */
 
 int		check_argv(int argc, char *argv[]);
-bool	check_duplicates(t_stack **stack);
+bool	check_duplicates(t_stack **stack, int size);
 
 #endif

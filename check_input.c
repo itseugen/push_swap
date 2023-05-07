@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/07 17:12:19 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:24:13 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,23 @@ int	check_argv(int argc, char *argv[])
 	return (0);
 }
 
-bool	check_duplicates(t_stack **stack)
+// if random fail, make sure calloc is size * 2 +1 and is a prime
+// and do it out of the calloc since we do modulo size
+//!maybe convert to 1 - n before using
+//!Make size the next prime >size!!!
+bool	check_duplicates(t_stack **stack, int size)
 {
 	t_stack	*current_node;
-	int		size;
 	bool	*hash;
 	int		i;
 
-	size = 0;
 	current_node = *stack;
 	while (current_node->next != *stack)
 	{
 		current_node = current_node->next;
 		size++;
 	}
+	size = size + 1;
 	hash = ft_calloc(size, sizeof(bool));
 	if (hash == NULL)
 		return (NULL);
