@@ -6,13 +6,14 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/05 18:42:23 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/07 17:19:32 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static t_stack	*init_split(char *str);
+static void		free_split(char **strings, size_t size);
 
 t_stack	*init_stack(int argc, char *argv[])
 {
@@ -56,9 +57,22 @@ static t_stack	*init_split(char *str)
 	while (i < size)
 	{
 		if (push(&stack, ft_atoi(nbrs[i])) == ALLOC_FAIL)
-			return (free_list(&stack), NULL);
+			return (free_split(nbrs, size), free_list(&stack), NULL);
 		i++;
 	}
-	free(nbrs);
+	free_split(nbrs, size);
 	return (stack);
+}
+
+static void	free_split(char **strings, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i <= size)
+	{
+		free(strings[i]);
+		i++;
+	}
+	free(strings);
 }
