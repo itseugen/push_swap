@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/08 14:25:49 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:08:26 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int	main(int argc, char *argv[])
 	if (stack1 == NULL)
 		return (ft_printf("Error\n"), WRONG_INPUT);
 	print_list(stack1);
-	// convert_values(stack1);
-	// print_list(stack1);
+	modify_values(stack1);
+	print_list(stack1);
 	// ft_printf("Listsize: %d\n", ft_circular_lstsize(stack1));
 	// if (check_duplicates(&stack1, 0) == true)
 	// {
