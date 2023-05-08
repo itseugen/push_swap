@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/07 18:10:22 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:23:34 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,14 @@ int		push(t_stack **stack, int value);
 int		pop(t_stack **stack);
 void	print_list(t_stack *head);
 void	free_list(t_stack **stack);
+int		ft_circular_lstsize(t_stack *lst);
 
 /* ************************************************************************** */
 /*                              Stack functions                               */
 /* ************************************************************************** */
 
 t_stack	*init_stack(int argc, char *argv[]);
+void	convert_values(t_stack *stack);
 
 /* ************************************************************************** */
 /*                              Check functions                               */
