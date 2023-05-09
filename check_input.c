@@ -6,14 +6,14 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/07 18:24:13 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:24:59 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static int	isdigit_pm(char *s, int (*f)(int));
-static int	ft_abs(int nb);
+static int	sum(int n);
 
 int	check_argv(int argc, char *argv[])
 {
@@ -33,40 +33,27 @@ int	check_argv(int argc, char *argv[])
 // and do it out of the calloc since we do modulo size
 //!maybe convert to 1 - n before using
 //!Make size the next prime >size!!!
-bool	check_duplicates(t_stack **stack, int size)
+
+int	check_duplicates(t_stack *stack)
 {
-	t_stack	*current_node;
-	bool	*hash;
+	int		lstsize;
+	t_stack	*current;
 	int		i;
+	int		stack_sum;
 
-	current_node = *stack;
-	while (current_node->next != *stack)
+	i = 0;
+	stack_sum = 0;
+	current = stack;
+	lstsize = ft_circular_lstsize(stack);
+	while (i < lstsize)
 	{
-		current_node = current_node->next;
-		size++;
+		stack_sum = stack_sum + current->val;
+		current = current->next;
+		i++;
 	}
-	size = size + 1;
-	hash = ft_calloc(size, sizeof(bool));
-	if (hash == NULL)
-		return (NULL);
-	current_node = *stack;
-	while (current_node->next != *stack)
-	{
-		i = ft_abs(current_node->val) % size;
-		if (hash[i])
-			return (free(hash), true);
-		hash[i] = true;
-		current_node = current_node->next;
-	}
-	return (free(hash), false);
-}
-
-static int	ft_abs(int nb)
-{
-	if (nb >= 0)
-		return (nb);
-	else
-		return (-nb);
+	if (stack_sum == sum(lstsize))
+		return (SUCCESS);
+	return (WRONG_INPUT);
 }
 
 static int	isdigit_pm(char *s, int (*f)(int))
@@ -83,4 +70,19 @@ static int	isdigit_pm(char *s, int (*f)(int))
 		i++;
 	}
 	return (1);
+}
+
+static int	sum(int n)
+{
+	int	i;
+	int	sum;
+
+	i = 1;
+	sum = 0;
+	while (i <= n)
+	{
+		sum = sum + i;
+		i++;
+	}
+	return (sum);
 }

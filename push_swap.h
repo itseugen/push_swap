@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/08 16:10:39 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:14:29 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 /*                                Libraries                                   */
 /* ************************************************************************** */
 
-# include <stdbool.h>
 # include "libft/libft.h"
 
 
@@ -28,6 +27,10 @@
 
 # ifndef FINISHED
 #  define FINISHED 0
+# endif
+
+# ifndef SUCCESS
+#  define SUCCESS 0
 # endif
 
 # ifndef WRONG_INPUT
@@ -60,11 +63,12 @@ int		ft_circular_lstsize(t_stack *lst);
 /* ************************************************************************** */
 
 t_stack	*init_stack(int argc, char *argv[]);
+int		convertvals(t_stack *stack);
 /* ************************************************************************** */
 /*                              Check functions                               */
 /* ************************************************************************** */
 
 int		check_argv(int argc, char *argv[]);
-bool	check_duplicates(t_stack **stack, int size);
+int		check_duplicates(t_stack *stack);
 
 #endif
