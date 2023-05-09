@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/09 13:14:29 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:40:39 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,17 @@
 /* ************************************************************************** */
 
 
-# ifndef FINISHED
-#  define FINISHED 0
-# endif
+# define FINISHED 0
+# define SUCCESS 0
+# define WRONG_INPUT 1
+# define ALLOC_FAIL -1
 
-# ifndef SUCCESS
-#  define SUCCESS 0
-# endif
-
-# ifndef WRONG_INPUT
-#  define WRONG_INPUT 1
-# endif
-
-# ifndef ALLOC_FAIL
-#  define ALLOC_FAIL -1
-# endif
+# define A 1
+# define B 2
+# define SWAP 4
+# define PUSH 8
+# define ROT 16
+# define REV 32
 
 typedef struct s_stack
 {
@@ -64,11 +60,16 @@ int		ft_circular_lstsize(t_stack *lst);
 
 t_stack	*init_stack(int argc, char *argv[]);
 int		convertvals(t_stack *stack);
+
 /* ************************************************************************** */
 /*                              Check functions                               */
 /* ************************************************************************** */
 
 int		check_argv(int argc, char *argv[]);
 int		check_duplicates(t_stack *stack);
+
+/* ************************************************************************** */
+/*                                 Push_swap                                  */
+/* ************************************************************************** */
 
 #endif
