@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 11:35:28 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/10 12:14:23 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,67 +62,26 @@ The last element becomes the first one.
 * add from b to a (backwards from where it was added)
 ! If needed add other sort alghorithms for n < 6
 */
-/*
-Black \033[0;30m
-Red \033[0;31m
-Green \033[0;32m
-Yellow \033[0;33m
-Blue \033[0;34m
-Purple \033[0;35m
-Cyan \033[0;36m
-White \033[0;37m
-*/
-
 
 #include "push_swap.h"
 
 int	main(int argc, char *argv[])
 {
-	ft_printf("argc: %d\nargv[1]: %s\n", argc, argv[1]);
+	t_stack	*stack1;
+	t_stack	*stack2;
+
+	stack1 = NULL;
+	stack2 = NULL;
 	if (argc <= 1 || (argc == 2 && check_argv(2, argv) != WRONG_INPUT))
 		return (FINISHED);
-	// if (!ft_strchr(argv[1], ' ') && check_argv(2, argv) != WRONG_INPUT)
-	// 	return (ft_printf("Error\n"), WRONG_INPUT);
-	//TODO: no duplicates, no too big/small Numbers
-	t_stack	*stack1 = NULL;
-	t_stack	*stack2 = NULL;
 	stack1 = init_stack(argc, argv);
 	if (stack1 == NULL)
 		return (ft_printf("Error\n"), WRONG_INPUT);
-	ft_printf("Listsize: %d\n", ft_circular_lstsize(stack1));
-	print_list(stack1);
-	//check if converting works
 	if (convertvals(stack1) == ALLOC_FAIL)
 		return (free_list(&stack1), ft_printf("Error\n"), 1);
-	print_list(stack1);
-	//check if duplicates ge detected
 	if (check_duplicates(stack1) == WRONG_INPUT)
-	{
-		purple();
-		return (ft_printf("Error\n"), WRONG_INPUT);
-	}
-	//check if pushing works
-	// push_ab(&stack1, &stack2, 'b');
-	// push_ab(&stack1, &stack2, 'b');
-	// push_ab(&stack1, &stack2, 'b');
-	// push_ab(&stack1, &stack2, 'b');
-	// push_ab(&stack1, &stack2, 'b');
-	// push_ab(&stack1, &stack2, 'b');
-	// push_ab(&stack1, &stack2, 'a');
-	// yellow();
-	// ft_printf("List 1:\n");
-	// print_list(stack1);
-	// purple();
-	// ft_printf("List 2:\n");
-	// print_list(stack2);
-	rev_rotate(&stack1, 'a');
-	//rotate(&stack1, 'a');
-	print_list(stack1);
-	//check the freeing
+		return (purple(), ft_printf("Error\n"), WRONG_INPUT);
 	free_list(&stack1);
 	free_list(&stack2);
-	print_list(stack1);
-	green();
-	ft_printf("FINISHED");
 	return (FINISHED);
 }
