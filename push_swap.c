@@ -6,10 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 12:14:23 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:46:34 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 /*
 **
 * You have 2 stacks named a and b.
@@ -42,7 +43,6 @@ The last element becomes the first one.
 *DONE: rrr : rra and rrb at the same time.
 **
 */
-
 /*
 ! Allowed
 *read
@@ -51,19 +51,6 @@ The last element becomes the first one.
 *free
 *exit
 */
-
-/*
-* IDEA: Use mergesort (at least for amounts over 5)
-* set numbers to 1 - amount of numbers n
-* get 1 - n/2 to stack b (while doing that: 1 - n*0.25 to bottom of b)
-* therefore n * 0.25 - n/2 to top of B
-* add a to b (n/2 - n * 0.75 to bottom of b (bellow 1 - n *0.25))
-* (n*0.75 - n to top of b)
-* add from b to a (backwards from where it was added)
-! If needed add other sort alghorithms for n < 6
-*/
-
-#include "push_swap.h"
 
 int	main(int argc, char *argv[])
 {
@@ -81,6 +68,14 @@ int	main(int argc, char *argv[])
 		return (free_list(&stack1), ft_printf("Error\n"), 1);
 	if (check_duplicates(stack1) == WRONG_INPUT)
 		return (purple(), ft_printf("Error\n"), WRONG_INPUT);
+	//test
+	ft_printf("%d\n", ft_circular_lstsize(stack1));
+	merge_sort(&stack1, &stack2, ft_circular_lstsize(stack1));
+	print_list(stack1);
+	yellow();
+	ft_printf("ID");
+	print_list(stack2);
+	//test
 	free_list(&stack1);
 	free_list(&stack2);
 	return (FINISHED);

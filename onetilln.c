@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:43:45 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/09 13:10:24 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:26:02 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 static int	convertone(t_stack *stack);
 
+/**
+ * @brief Converts a list of ints to their respective value from 1 till n
+ * @param *stack The list to modify
+ * @return 0 if the program succeeds, -1 if memory allocation fails.
+*/
 int	convertvals(t_stack *stack)
 {
 	t_stack	*current;
@@ -43,6 +48,11 @@ int	convertvals(t_stack *stack)
 	return (0);
 }
 
+/// @brief Compares one element of the list with every
+/// other element and returns the relative value
+/// @param stack the list to modify on the
+/// position of the element to give a new value
+/// @return The value to assigne to the node
 static int	convertone(t_stack *stack)
 {
 	t_stack	*current;
