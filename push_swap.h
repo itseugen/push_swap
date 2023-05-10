@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/09 16:20:58 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:00:24 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define SUCCESS 0
 # define WRONG_INPUT 1
 # define ALLOC_FAIL -1
+# define EMPTY -1
 
 # define A 1
 # define B 2
