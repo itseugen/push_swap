@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/09 13:16:03 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:35:28 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,22 @@ Do nothing if there is only one or no elements.
 TODO: sb (swap b): Swap the first 2 elements at the top of stack b.
 Do nothing if there is only one or no elements.
 TODO: ss : sa and sb at the same time.
-TODO: pa (push a): Take the first element at the top of b
+*DONE: pa (push a): Take the first element at the top of b
 * and put it at the top of a.
 Do nothing if b is empty.
-TODO: pb (push b): Take the first element at the top of a
+*DONE: pb (push b): Take the first element at the top of a
 * and put it at the top of b.
 Do nothing if a is empty.
-TODO: ra (rotate a): Shift up all elements of stack a by 1.
+*DONE: ra (rotate a): Shift up all elements of stack a by 1.
 The first element becomes the last one.
-TODO: rb (rotate b): Shift up all elements of stack b by 1.
+*DONE: rb (rotate b): Shift up all elements of stack b by 1.
 The first element becomes the last one.
-TODO: rr : ra and rb at the same time.
-TODO: rra (reverse rotate a): Shift down all elements of stack a by 1.
+*DONE: rr : ra and rb at the same time.
+*DONE: rra (reverse rotate a): Shift down all elements of stack a by 1.
 The last element becomes the first one.
-TODO: rrb (reverse rotate b): Shift down all elements of stack b by 1.
+*DONE: rrb (reverse rotate b): Shift down all elements of stack b by 1.
 The last element becomes the first one.
-TODO: rrr : rra and rrb at the same time.
+*DONE: rrr : rra and rrb at the same time.
 **
 */
 
@@ -85,20 +85,42 @@ int	main(int argc, char *argv[])
 	// 	return (ft_printf("Error\n"), WRONG_INPUT);
 	//TODO: no duplicates, no too big/small Numbers
 	t_stack	*stack1 = NULL;
+	t_stack	*stack2 = NULL;
 	stack1 = init_stack(argc, argv);
 	if (stack1 == NULL)
 		return (ft_printf("Error\n"), WRONG_INPUT);
 	ft_printf("Listsize: %d\n", ft_circular_lstsize(stack1));
 	print_list(stack1);
+	//check if converting works
 	if (convertvals(stack1) == ALLOC_FAIL)
 		return (free_list(&stack1), ft_printf("Error\n"), 1);
 	print_list(stack1);
+	//check if duplicates ge detected
 	if (check_duplicates(stack1) == WRONG_INPUT)
 	{
 		purple();
 		return (ft_printf("Error\n"), WRONG_INPUT);
 	}
+	//check if pushing works
+	// push_ab(&stack1, &stack2, 'b');
+	// push_ab(&stack1, &stack2, 'b');
+	// push_ab(&stack1, &stack2, 'b');
+	// push_ab(&stack1, &stack2, 'b');
+	// push_ab(&stack1, &stack2, 'b');
+	// push_ab(&stack1, &stack2, 'b');
+	// push_ab(&stack1, &stack2, 'a');
+	// yellow();
+	// ft_printf("List 1:\n");
+	// print_list(stack1);
+	// purple();
+	// ft_printf("List 2:\n");
+	// print_list(stack2);
+	rev_rotate(&stack1, 'a');
+	//rotate(&stack1, 'a');
+	print_list(stack1);
+	//check the freeing
 	free_list(&stack1);
+	free_list(&stack2);
 	print_list(stack1);
 	green();
 	ft_printf("FINISHED");

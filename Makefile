@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/09 13:36:54 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/10 11:19:58 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = push_swap.c check_input.c stackops.c testers.c stack_init.c helpers.c\
-		onetilln.c listops.c
+SOURCE = push_swap.c check_input.c push_a_b.c testers.c stack_init.c helpers.c\
+		onetilln.c listops.c rotate.c
 
 OBJS = $(SOURCE:.c=.o)
 

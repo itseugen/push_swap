@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 09:00:24 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:34:26 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,9 @@ int		check_duplicates(t_stack *stack);
 /* ************************************************************************** */
 /*                                 Push_swap                                  */
 /* ************************************************************************** */
+
+int		push_ab(t_stack **stackA, t_stack **stackB, char id);
+int		rotate(t_stack **stack, char id);
+int		rev_rotate(t_stack **stack, char id);
 
 #endif
