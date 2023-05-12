@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:40 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/12 17:36:12 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:58:00 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,20 @@ static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n)
 	}
 }
 
-//!WIP
+//!while doing temp-- /instead of doing temp-- compare to the next and insert if possible
 static void	sort_to_a(t_stack **stackA, t_stack **stackB)
 {
 	int	temp;
 
+	temp = 0;
+	while ((*stackB)->val != ft_circular_lstsize(*stackB))
+	{
+		stackops(stackA, stackB, ROT + B);
+		temp++;
+	}
 	stackops(stackA, stackB, PUSH + A);
-	stackops(stackA, stackB, PUSH + A);
+	while (temp--)
+		stackops(stackA, stackB, REV + B);
 	if ((*stackA)->val > (*stackA)->prev->val)
 		stackops(stackA, stackB, ROT + A);
 	while (*stackB)

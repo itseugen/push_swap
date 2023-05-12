@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/12 17:47:38 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/12 18:39:35 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,10 @@ LIBFT_GIT	=	https://github.com/itseugen/c_library
 LIBFT_DIR	=	./libft
 LIBFT_LIB	=	libft.a
 LIBFT		=	$(LIBFT_DIR)/$(LIBFT_LIB)
+
+VIS_GIT		=	https://github.com/o-reo/push_swap_visualizer.git
+VIS_DIR		=	./visualizer
+VIS_EXE		=	$(VIS_DIR)/build/bin/visualizer
 
 all: $(NAME)
 
@@ -45,5 +49,18 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+vis: $(NAME) $(VISEXE)
+	$(VISEXE)
+
+visclean:
+	rm -rf $(VIS_DIR)
+
+$(VIS_DIR):
+	git clone $(VIS_GIT) $(VIS_DIR); (cd $(VIS_DIR) && mkdir build)
+
+$(VIS_EXE): $(VIS_DIR)
+	(cd $(VIS_DIR)/build && cmake .. && make)
+
 
 .PHONY: all clean fclean re clean_obj
