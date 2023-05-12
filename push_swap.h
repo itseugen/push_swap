@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 14:51:52 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:52:42 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		convertvals(t_stack *stack);
 
 int		check_argv(int argc, char *argv[]);
 int		check_duplicates(t_stack *stack);
+int		issorted(t_stack **stack);
 
 /* ************************************************************************** */
 /*                                 Push_swap                                  */

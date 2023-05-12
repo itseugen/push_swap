@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 16:46:34 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:54:04 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,9 @@ int	main(int argc, char *argv[])
 		return (free_list(&stack1), ft_printf("Error\n"), 1);
 	if (check_duplicates(stack1) == WRONG_INPUT)
 		return (purple(), ft_printf("Error\n"), WRONG_INPUT);
-	//test
-	ft_printf("%d\n", ft_circular_lstsize(stack1));
+	if (issorted(&stack1) == FINISHED)
+		return (free_list(&stack1), free_list(&stack2), FINISHED);
 	merge_sort(&stack1, &stack2, ft_circular_lstsize(stack1));
-	print_list(stack1);
-	yellow();
-	ft_printf("ID");
-	print_list(stack2);
-	//test
 	free_list(&stack1);
 	free_list(&stack2);
 	return (FINISHED);

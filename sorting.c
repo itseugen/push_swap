@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:40 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 17:15:24 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:36:12 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include "push_swap.h"
 
 static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n);
-static void	sort_to_a(t_stack **stackA, t_stack **stackB, int n);
+static void	sort_to_a(t_stack **stackA, t_stack **stackB);
 
 /// @brief Uses mergesort to sort stack A
 /// @param stackA 
@@ -33,7 +33,7 @@ static void	sort_to_a(t_stack **stackA, t_stack **stackB, int n);
 void	merge_sort(t_stack **stackA, t_stack **stackB, int n)
 {
 	bring_to_b(stackA, stackB, n);
-	sort_to_a(stackA, stackB, n);
+	sort_to_a(stackA, stackB);
 }
 
 /// @brief Brings all below div to B
@@ -71,37 +71,25 @@ static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n)
 }
 
 //!WIP
-static void	sort_to_a(t_stack **stackA, t_stack **stackB, int n)
+static void	sort_to_a(t_stack **stackA, t_stack **stackB)
 {
-	int	i;
-	int	q1;
-	int	q2;
-	int	q3;
 	int	temp;
 
-	i = 0;
-	q1 = n / 4;
-	q2 = n / 2;
-	q3 = n * 3 / 4;
 	stackops(stackA, stackB, PUSH + A);
 	stackops(stackA, stackB, PUSH + A);
-	while (i < q1)
+	if ((*stackA)->val > (*stackA)->prev->val)
+		stackops(stackA, stackB, ROT + A);
+	while (*stackB)
 	{
 		temp = 0;
-		while ((*stackB)->val > (*stackA)->val)
+		while ((*stackB)->val > (*stackA)->val
+			&& temp <= ft_circular_lstsize(*stackA))
 		{
 			stackops(stackA, stackB, ROT + A);
 			temp++;
 		}
 		stackops(stackA, stackB, PUSH + A);
-		i++;
 		while (temp--)
 			stackops(stackA, stackB, REV + A);
-		if (i == q1)
-			q1 = q2;
-		if (i == q2)
-			q1 = q3;
-		if (i == q3)
-			q1 = n;
 	}
 }
