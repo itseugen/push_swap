@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:42:37 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/15 13:16:57 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:49:40 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ void	clean_list(t_stack **stack)
 			&& ft_strncmp("ra", current->next->str, 2) == 0)
 		{
 			temp = current->prev;
-			pop(&(current)->next);
 			pop(&current);
+			//pop(&current);
 			current = temp;
 		}
 		else
