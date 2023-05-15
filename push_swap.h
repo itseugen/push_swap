@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/12 17:52:42 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:47:55 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 typedef struct s_stack
 {
 	int				val;
+	char			*str;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -49,9 +50,12 @@ typedef struct s_stack
 
 int		push(t_stack **stack, int value);
 int		pop(t_stack **stack);
-void	print_list(t_stack *head);
+void	print_list_int(t_stack *head);
+void	print_list_str(t_stack *head);
 void	free_list(t_stack **stack);
 int		ft_circular_lstsize(t_stack *lst);
+int		add_back_str(t_stack **stack, char *str);
+void	clean_list(t_stack **stack);
 
 /* ************************************************************************** */
 /*                              Stack functions                               */
@@ -72,7 +76,7 @@ int		issorted(t_stack **stack);
 /*                                 Push_swap                                  */
 /* ************************************************************************** */
 
-int		stackops(t_stack **stackA, t_stack **stackB, int id);
+int		stackops(t_stack **list, t_stack **stackA, t_stack **stackB, int id);
 int		push_ab(t_stack **stackA, t_stack **stackB, char id);
 int		rotate(t_stack **stack, char id);
 int		rev_rotate(t_stack **stack, char id);
@@ -81,6 +85,6 @@ int		rev_rotate(t_stack **stack, char id);
 /*                                  Sorting                                   */
 /* ************************************************************************** */
 
-void	merge_sort(t_stack **stackA, t_stack **stackB, int n);
+void	merge_sort(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:40 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/12 18:58:00 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:29:46 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,18 @@
 
 #include "push_swap.h"
 
-static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n);
-static void	sort_to_a(t_stack **stackA, t_stack **stackB);
+static void	bring_to_b(t_stack **list, t_stack **stackA,
+				t_stack **stackB, int n);
+static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB);
 
 /// @brief Uses mergesort to sort stack A
 /// @param stackA 
 /// @param stackB 
 /// @param n Amount of items
-void	merge_sort(t_stack **stackA, t_stack **stackB, int n)
+void	merge_sort(t_stack **list, t_stack **stackA, t_stack **stackB, int n)
 {
-	bring_to_b(stackA, stackB, n);
-	sort_to_a(stackA, stackB);
+	bring_to_b(list, stackA, stackB, n);
+	sort_to_a(list, stackA, stackB);
 }
 
 /// @brief Brings all below div to B
@@ -41,7 +42,8 @@ void	merge_sort(t_stack **stackA, t_stack **stackB, int n)
 /// @param stackB 
 /// @param n amount of items in list
 /// @param div 4, 2, 1.5, 1 depending on what part we want to bring to b
-static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n)
+static void	bring_to_b(t_stack **list, t_stack **stackA,
+				t_stack **stackB, int n)
 {
 	int	i;
 	int	q1;
@@ -56,11 +58,11 @@ static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n)
 	{
 		if ((*stackA)->val <= q1)
 		{
-			stackops(stackA, stackB, PUSH + B);
+			stackops(list, stackA, stackB, PUSH + B);
 			i++;
 		}
 		else
-			stackops(stackA, stackB, ROT + A);
+			stackops(list, stackA, stackB, ROT + A);
 		if (i == q1)
 			q1 = q2;
 		if (i == q2)
@@ -71,32 +73,32 @@ static void	bring_to_b(t_stack **stackA, t_stack **stackB, int n)
 }
 
 //!while doing temp-- /instead of doing temp-- compare to the next and insert if possible
-static void	sort_to_a(t_stack **stackA, t_stack **stackB)
+static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
 {
 	int	temp;
 
 	temp = 0;
 	while ((*stackB)->val != ft_circular_lstsize(*stackB))
 	{
-		stackops(stackA, stackB, ROT + B);
+		stackops(list, stackA, stackB, ROT + B);
 		temp++;
 	}
-	stackops(stackA, stackB, PUSH + A);
+	stackops(list, stackA, stackB, PUSH + A);
 	while (temp--)
-		stackops(stackA, stackB, REV + B);
+		stackops(list, stackA, stackB, REV + B);
 	if ((*stackA)->val > (*stackA)->prev->val)
-		stackops(stackA, stackB, ROT + A);
+		stackops(list, stackA, stackB, ROT + A);
 	while (*stackB)
 	{
 		temp = 0;
 		while ((*stackB)->val > (*stackA)->val
 			&& temp <= ft_circular_lstsize(*stackA))
 		{
-			stackops(stackA, stackB, ROT + A);
+			stackops(list, stackA, stackB, ROT + A);
 			temp++;
 		}
-		stackops(stackA, stackB, PUSH + A);
+		stackops(list, stackA, stackB, PUSH + A);
 		while (temp--)
-			stackops(stackA, stackB, REV + A);
+			stackops(list, stackA, stackB, REV + A);
 	}
 }

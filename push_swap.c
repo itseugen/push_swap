@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/12 17:54:04 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/15 13:08:57 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack1;
 	t_stack	*stack2;
+	t_stack	*list;
 
 	stack1 = NULL;
 	stack2 = NULL;
+	list = NULL;
 	if (argc <= 1 || (argc == 2 && check_argv(2, argv) != WRONG_INPUT))
 		return (FINISHED);
 	stack1 = init_stack(argc, argv);
@@ -70,8 +72,13 @@ int	main(int argc, char *argv[])
 		return (purple(), ft_printf("Error\n"), WRONG_INPUT);
 	if (issorted(&stack1) == FINISHED)
 		return (free_list(&stack1), free_list(&stack2), FINISHED);
-	merge_sort(&stack1, &stack2, ft_circular_lstsize(stack1));
+	merge_sort(&list, &stack1, &stack2, ft_circular_lstsize(stack1));
+	print_list_str(list);
+	clean_list(&list);
+	ft_printf("The updated list!\n");
+	print_list_str(list);
 	free_list(&stack1);
 	free_list(&stack2);
+	free_list(&list);
 	return (FINISHED);
 }
