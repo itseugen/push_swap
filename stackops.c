@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:42:37 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/15 13:49:40 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 15:02:54 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,26 +66,35 @@ static void	do_ops(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
 		get_ops(list, stackA, stackB, "rrb");
 }
 
+static void	pop_next_two(t_stack **stack)
+{
+	t_stack	*free1;
+	t_stack	*free2;
+
+	free1 = (*stack)->next;
+	free2 = (*stack)->next->next;
+	(*stack)->next = free2->next;
+	free(free1);
+	free(free2);
+}
+
 void	clean_list(t_stack **stack)
 {
 	t_stack	*current;
-	t_stack	*temp;
 	int		doonce;
 
 	doonce = 1;
 	current = *stack;
 	if (current == NULL)
 		return ;
-	while (doonce == 1 || (current != *stack && current != NULL))
+	while (doonce == 1 || (current->next != *stack && current != NULL))
 	{
 		doonce = 0;
 		if (ft_strncmp("rra", current->str, 3) == 0
 			&& ft_strncmp("ra", current->next->str, 2) == 0)
 		{
-			temp = current->prev;
-			pop(&current);
-			//pop(&current);
-			current = temp;
+			current = current->prev;
+			pop_next_two(&current);
 		}
 		else
 			current = current->next;

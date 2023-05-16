@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:40 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/15 12:29:46 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:21:29 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ static void	bring_to_b(t_stack **list, t_stack **stackA,
 	}
 }
 
-//!while doing temp-- /instead of doing temp-- compare to the next and insert if possible
 static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
 {
 	int	temp;

@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/15 13:08:57 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:37:53 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,13 @@ int	main(int argc, char *argv[])
 	if (issorted(&stack1) == FINISHED)
 		return (free_list(&stack1), free_list(&stack2), FINISHED);
 	merge_sort(&list, &stack1, &stack2, ft_circular_lstsize(stack1));
-	print_list_str(list);
+	//print_list_str(list);
 	clean_list(&list);
-	ft_printf("The updated list!\n");
+	//ft_printf("The updated list!\n");
 	print_list_str(list);
 	free_list(&stack1);
 	free_list(&stack2);
 	free_list(&list);
+	system("leaks push_swap");
 	return (FINISHED);
 }
