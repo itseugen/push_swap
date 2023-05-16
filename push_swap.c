@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 18:11:34 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:13:49 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 * • The goal is to sort in ascending order numbers into stack a.
 * To do so you have the following operations at your disposal:
-TODO: sa (swap a): Swap the first 2 elements at the top of stack a.
+*DONE sa (swap a): Swap the first 2 elements at the top of stack a.
 Do nothing if there is only one or no elements.
-TODO: sb (swap b): Swap the first 2 elements at the top of stack b.
+*DONE sb (swap b): Swap the first 2 elements at the top of stack b.
 Do nothing if there is only one or no elements.
 TODO: ss : sa and sb at the same time.
 *DONE: pa (push a): Take the first element at the top of b
@@ -35,12 +35,12 @@ Do nothing if a is empty.
 The first element becomes the last one.
 *DONE: rb (rotate b): Shift up all elements of stack b by 1.
 The first element becomes the last one.
-*DONE: rr : ra and rb at the same time.
+TODO: rr : ra and rb at the same time.
 *DONE: rra (reverse rotate a): Shift down all elements of stack a by 1.
 The last element becomes the first one.
 *DONE: rrb (reverse rotate b): Shift down all elements of stack b by 1.
 The last element becomes the first one.
-*DONE: rrr : rra and rrb at the same time.
+TODO: rrr : rra and rrb at the same time.
 **
 */
 /*
