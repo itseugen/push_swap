@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:42:37 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:47:14 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:15:59 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 static int	get_ops(t_stack **list, t_stack **stackA,
 				t_stack **stackB, char *str);
 static void	do_ops(t_stack **list, t_stack **stackA, t_stack **stackB, int id);
+static void	do_ops2(t_stack **list, t_stack **stackA, t_stack **stackB, int id);
 
-/*
- * Maybe add write/printf fail protection
-*/
 int	stackops(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
 {
 	do_ops(list, stackA, stackB, id);
@@ -52,6 +50,15 @@ static void	do_ops(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
 		rev_rotate(stackA, 'a');
 	if (id == REV + B)
 		rev_rotate(stackB, 'b');
+	if (id == SWAP + A)
+		swap(stackA);
+	if (id == SWAP + B)
+		swap(stackB);
+	do_ops2(list, stackA, stackB, id);
+}
+
+static void	do_ops2(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
+{
 	if (id == (PUSH + A))
 		get_ops(list, stackA, stackB, "pa");
 	if (id == (PUSH + B))
@@ -64,39 +71,8 @@ static void	do_ops(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
 		get_ops(list, stackA, stackB, "rra");
 	if (id == REV + B)
 		get_ops(list, stackA, stackB, "rrb");
-}
-
-static void	pop_next_two(t_stack **stack)
-{
-	t_stack	*free1;
-	t_stack	*free2;
-
-	free1 = (*stack)->next;
-	free2 = (*stack)->next->next;
-	(*stack)->next = free2->next;
-	free(free1);
-	free(free2);
-}
-
-void	clean_list(t_stack **stack)
-{
-	t_stack	*current;
-	int		doonce;
-
-	doonce = 1;
-	current = *stack;
-	if (current == NULL)
-		return ;
-	while (doonce == 1 || (current->next != *stack && current != NULL))
-	{
-		doonce = 0;
-		if (ft_strncmp("rra", current->str, 3) == 0
-			&& ft_strncmp("ra", current->next->str, 2) == 0)
-		{
-			current = current->prev;
-			pop_next_two(&current);
-		}
-		else
-			current = current->next;
-	}
+	if (id == SWAP + A)
+		get_ops(list, stackA, stackB, "sa");
+	if (id == SWAP + B)
+		get_ops(list, stackA, stackB, "sb");
 }

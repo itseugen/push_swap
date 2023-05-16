@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:36:25 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:42:29 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:04:40 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,28 +87,3 @@ void	free_list(t_stack **stack)
 	*stack = NULL;
 }
 
-int	add_back_str(t_stack **stack, char *str)
-{
-	t_stack	*new_node;
-	t_stack	*last_node;
-
-	new_node = malloc(sizeof(t_stack));
-	if (new_node == NULL)
-		return (ALLOC_FAIL);
-	new_node->str = str;
-	if (*stack == NULL)
-	{
-		new_node->next = new_node;
-		new_node->prev = new_node;
-		*stack = new_node;
-	}
-	else
-	{
-		last_node = (*stack)->prev;
-		new_node->next = *stack;
-		new_node->prev = last_node;
-		last_node->next = new_node;
-		(*stack)->prev = new_node;
-	}
-	return (1);
-}

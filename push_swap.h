@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/15 12:47:55 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:14:11 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,13 @@ int		stackops(t_stack **list, t_stack **stackA, t_stack **stackB, int id);
 int		push_ab(t_stack **stackA, t_stack **stackB, char id);
 int		rotate(t_stack **stack, char id);
 int		rev_rotate(t_stack **stack, char id);
+int		swap(t_stack **stack);
 
 /* ************************************************************************** */
 /*                                  Sorting                                   */
 /* ************************************************************************** */
 
+void	sorting(t_stack **stack1, t_stack **stack2);
 void	merge_sort(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
 
 #endif
