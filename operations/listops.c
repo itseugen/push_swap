@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:36:25 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/15 13:04:32 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:42:29 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /// @brief Adds item to top of stack
 /// @param stack the stack

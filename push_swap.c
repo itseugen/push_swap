@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:37:53 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:41:46 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ int	main(int argc, char *argv[])
 	free_list(&stack1);
 	free_list(&stack2);
 	free_list(&list);
-	system("leaks push_swap");
+	//system("leaks push_swap");
 	return (FINISHED);
 }

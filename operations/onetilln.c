@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:43:45 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 14:26:02 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:43:07 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	convertone(t_stack *stack);
 

@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/08 16:23:21 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:44:52 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static t_stack	*init_split(char *str);
 static void		free_split(char **strings, size_t size);

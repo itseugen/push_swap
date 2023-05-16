@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/12 18:39:35 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/16 16:46:46 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = push_swap.c check_input.c push_a_b.c testers.c stack_init.c helpers.c\
-		onetilln.c listops.c rotate.c sorting.c stackops.c issorted.c
-
+SOURCE = push_swap.c check_input.c ./operations/push_a_b.c testers.c ./operations/stack_init.c ./operations/helpers.c\
+		./operations/onetilln.c ./operations/listops.c ./operations/rotate.c  ./operations/stackops.c ./operations/issorted.c
+SOURCE+= ./sorting/mergesort.c
 OBJS = $(SOURCE:.c=.o)
 
 LIBFT_GIT	=	https://github.com/itseugen/c_library

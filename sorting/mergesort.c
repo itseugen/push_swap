@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:40 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:21:29 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:46:26 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ! If needed add other sort alghorithms for n < 6
 */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	bring_to_b(t_stack **list, t_stack **stackA,
 				t_stack **stackB, int n);

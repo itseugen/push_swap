@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:42:37 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 15:02:54 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:47:14 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	get_ops(t_stack **list, t_stack **stackA,
 				t_stack **stackB, char *str);

@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 11:20:01 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 14:34:24 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:44:14 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /**
  * @brief Rotates the stack (first becomes last)

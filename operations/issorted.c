@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:47:46 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/12 17:54:19 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:43:45 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	issorted(t_stack **stack)
 {

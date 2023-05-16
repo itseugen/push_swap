@@ -6,11 +6,11 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:37:08 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/10 16:46:11 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:43:22 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	push_pop_stack(t_stack **stack1, t_stack **stack2);
 static void	pop_stack1(t_stack **stack1);
