@@ -6,13 +6,14 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:48:11 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 18:09:36 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/16 18:37:44 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 static void	sort_three(t_stack **list, t_stack **stackA, t_stack **stackB);
+static void	sort_four(t_stack **list, t_stack **stackA, t_stack **stackB);
 static void	sort_five(t_stack **list, t_stack **stackA, t_stack **stackB);
 
 void	sorting(t_stack **stack1, t_stack **stack2)
@@ -24,9 +25,11 @@ void	sorting(t_stack **stack1, t_stack **stack2)
 	list = NULL;
 	if (lstsize == 2)
 		stackops(&list, stack1, stack2, ROT + A);
-	if (lstsize == 3)
+	else if (lstsize == 3)
 		sort_three(&list, stack1, stack2);
-	if (lstsize == 5)
+	else if (lstsize == 4)
+		sort_four(&list, stack1, stack2);
+	else if (lstsize == 5)
 		sort_five(&list, stack1, stack2);
 	else
 		merge_sort(&list, stack1, stack2, lstsize);
@@ -68,4 +71,20 @@ static void	sort_five(t_stack **list, t_stack **stackA, t_stack **stackB)
 		stackops(list, stackA, stackB, PUSH + A);
 		stackops(list, stackA, stackB, PUSH + A);
 	}
+}
+
+static void	sort_four(t_stack **list, t_stack **stackA, t_stack **stackB)
+{
+	if ((*stackA)->prev->val == 1)
+		stackops(list, stackA, stackB, REV + A);
+	else if ((*stackA)->prev->prev->val == 1)
+	{
+		stackops(list, stackA, stackB, REV + A);
+		stackops(list, stackA, stackB, REV + A);
+	}
+	else if ((*stackA)->next->val == 1)
+		stackops(list, stackA, stackB, ROT + A);
+	stackops(list, stackA, stackB, PUSH + B);
+	sort_three(list, stackA, stackB);
+	stackops(list, stackA, stackB, PUSH + A);
 }
