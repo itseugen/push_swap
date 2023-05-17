@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 17:14:11 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/17 13:25:51 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int		swap(t_stack **stack);
 
 void	sorting(t_stack **stack1, t_stack **stack2);
 void	merge_sort(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
+void	merge_sort_test(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
 
 #endif

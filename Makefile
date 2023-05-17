@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/16 17:08:16 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/17 13:18:54 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 SOURCE = push_swap.c check_input.c ./operations/push_a_b.c testers.c ./operations/stack_init.c ./operations/helpers.c\
 		./operations/onetilln.c ./operations/listops.c ./operations/rotate.c  ./operations/stackops.c ./operations/issorted.c\
 		./operations/oplist.c ./operations/swap.c
-SOURCE+= ./sorting/mergesort.c ./sorting/sorting.c
+SOURCE+= ./sorting/mergesort.c ./sorting/sorting.c ./sorting/mergesorttest.c
 
 OBJS = $(SOURCE:.c=.o)
 
