@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mergesorttest.c                                    :+:      :+:    :+:   */
+/*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 13:18:26 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/24 14:05:23 by eweiberl         ###   ########.fr       */
+/*   Created: 2023/05/24 12:31:29 by eweiberl          #+#    #+#             */
+/*   Updated: 2023/05/24 14:01:16 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB);
 /// @param stackA 
 /// @param stackB 
 /// @param n Amount of items
-void	merge_sort_test(t_stack **list, t_stack **stackA, t_stack **stackB, int n)
+void	quicksort(t_stack **list, t_stack **stackA, t_stack **stackB)
 {
-	bring_to_b(list, stackA, stackB, n);
+	bring_to_b(list, stackA, stackB, ft_circular_lstsize(*stackA));
 	sort_to_a(list, stackA, stackB);
 }
 
@@ -35,33 +35,26 @@ static void	bring_to_b(t_stack **list, t_stack **stackA,
 				t_stack **stackB, int n)
 {
 	int	i;
-	int	q1;
-	int	factor;
 
-	factor = 2;
 	i = 0;
-	q1 = n / 12;
-	while (i < q1)
+	while (i < n * 2 / 3)
 	{
-		if ((*stackA)->val == n)
+		if ((*stackA)->val >= n / 3 && (*stackA)->val < n * 2 / 3)
+		{
+			stackops(list, stackA, stackB, PUSH + B);
+			i++;
+		}
+		else if ((*stackA)->val >= n * 2 / 3)
 		{
 			stackops(list, stackA, stackB, PUSH + B);
 			stackops(list, stackA, stackB, ROT + B);
 			i++;
 		}
-		else if ((*stackA)->val <= q1)
-		{
-			stackops(list, stackA, stackB, PUSH + B);
-			i++;
-		}
 		else
 			stackops(list, stackA, stackB, ROT + A);
-		if (i == q1 && i != n)
-		{
-			q1 = n * factor / 12;
-			factor++;
-		}
 	}
+	while (*stackA)
+		stackops(list, stackA, stackB, PUSH + B);
 }
 
 static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
@@ -69,10 +62,7 @@ static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
 	int	temp;
 
 	temp = 0;
-	stackops(list, stackA, stackB, REV + B);
 	stackops(list, stackA, stackB, PUSH + A);
-	if ((*stackA)->val > (*stackA)->prev->val)
-		stackops(list, stackA, stackB, ROT + A);
 	while (*stackB)
 	{
 		temp = 0;

@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:48:11 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/17 13:38:24 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:03:16 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	sorting(t_stack **stack1, t_stack **stack2)
 		merge_sort(&list, stack1, stack2, lstsize);
 	else
 		merge_sort_test(&list, stack1, stack2, lstsize);
+	// else
+	// 	quicksort(&list, stack1, stack2);
 	clean_list(&list);
 	print_list_str(list);
 	free_list(&list);
