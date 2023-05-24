@@ -6,14 +6,13 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:44:52 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:39:12 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 static t_stack	*init_split(char *str);
-static void		free_split(char **strings, size_t size);
 
 t_stack	*init_stack(int argc, char *argv[])
 {
@@ -30,7 +29,7 @@ t_stack	*init_stack(int argc, char *argv[])
 		return (NULL);
 	while (i < argc)
 	{
-		if (push(&stack, ft_atoi(argv[i])) == ALLOC_FAIL)
+		if (push(&stack, atoi_control(argv[i], stack, NULL, 0)) == ALLOC_FAIL)
 			return (free_list(&stack), NULL);
 		i++;
 	}
@@ -56,7 +55,8 @@ static t_stack	*init_split(char *str)
 		return (free(nbrs), NULL);
 	while (i < size)
 	{
-		if (push(&stack, ft_atoi(nbrs[i])) == ALLOC_FAIL)
+		if (push(&stack,
+				atoi_control(nbrs[i], stack, nbrs, size)) == ALLOC_FAIL)
 			return (free_split(nbrs, size), free_list(&stack), NULL);
 		i++;
 	}
@@ -64,7 +64,7 @@ static t_stack	*init_split(char *str)
 	return (stack);
 }
 
-static void	free_split(char **strings, size_t size)
+void	free_split(char **strings, size_t size)
 {
 	size_t	i;
 

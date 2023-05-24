@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/17 13:18:54 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/24 14:24:02 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,11 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = push_swap.c check_input.c ./operations/push_a_b.c testers.c ./operations/stack_init.c ./operations/helpers.c\
+SOURCE = push_swap.c ./operations/push_a_b.c testers.c ./operations/stack_init.c ./operations/helpers.c\
 		./operations/onetilln.c ./operations/listops.c ./operations/rotate.c  ./operations/stackops.c ./operations/issorted.c\
 		./operations/oplist.c ./operations/swap.c
-SOURCE+= ./sorting/mergesort.c ./sorting/sorting.c ./sorting/mergesorttest.c
+SOURCE+= ./sorting/mergesort.c ./sorting/sorting.c ./sorting/mergesorttest.c ./sorting/quicksort.c
+SOURCE+= ./checks/check_input.c ./checks/ps_atoi.c
 
 OBJS = $(SOURCE:.c=.o)
 
@@ -52,17 +53,17 @@ fclean: clean
 
 re: fclean all
 
-vis: $(NAME) $(VISEXE)
-	$(VISEXE)
+vis: $(VISEXE)
+	./visualizer/build/bin/visualizer 
 
 visclean:
 	rm -rf $(VIS_DIR)
 
-$(VIS_DIR):
-	git clone $(VIS_GIT) $(VIS_DIR); (cd $(VIS_DIR) && mkdir build)
+# $(VIS_DIR):
+# 	git clone $(VIS_GIT) $(VIS_DIR); (cd $(VIS_DIR) && mkdir build)
 
-$(VIS_EXE): $(VIS_DIR)
-	(cd $(VIS_DIR)/build && cmake .. && make)
+# $(VIS_EXE): $(VIS_DIR)
+# 	(cd $(VIS_DIR)/build && cmake .. && make)
 
 
 .PHONY: all clean fclean re clean_obj

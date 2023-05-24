@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:18:34 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/17 13:25:51 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:39:35 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	clean_list(t_stack **stack);
 
 t_stack	*init_stack(int argc, char *argv[]);
 int		convertvals(t_stack *stack);
+void	free_split(char **strings, size_t size);
 
 /* ************************************************************************** */
 /*                              Check functions                               */
@@ -71,6 +72,7 @@ int		convertvals(t_stack *stack);
 int		check_argv(int argc, char *argv[]);
 int		check_duplicates(t_stack *stack);
 int		issorted(t_stack **stack);
+int		atoi_control(char *str, t_stack *stack, char **strings, size_t size);
 
 /* ************************************************************************** */
 /*                                 Push_swap                                  */
@@ -89,5 +91,6 @@ int		swap(t_stack **stack);
 void	sorting(t_stack **stack1, t_stack **stack2);
 void	merge_sort(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
 void	merge_sort_test(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
+void	quicksort(t_stack **list, t_stack **stackA, t_stack **stackB);
 
 #endif
