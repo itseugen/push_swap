@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 12:31:29 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/24 14:01:16 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:11:23 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,31 @@ void	quicksort(t_stack **list, t_stack **stackA, t_stack **stackB)
 /// @param stackA 
 /// @param stackB 
 /// @param n amount of items in list
-/// @param div 4, 2, 1.5, 1 depending on what part we want to bring to b
 static void	bring_to_b(t_stack **list, t_stack **stackA,
 				t_stack **stackB, int n)
 {
-	int	i;
+	int	max;
+	int	factor;
 
-	i = 0;
-	while (i < n * 2 / 3)
+	max = n;
+	factor = 2;
+	while ((*stackA) != NULL)
 	{
-		if ((*stackA)->val >= n / 3 && (*stackA)->val < n * 2 / 3)
+		while (ft_circular_lstsize(*stackA) > (n / 2))
 		{
-			stackops(list, stackA, stackB, PUSH + B);
-			i++;
+			if ((*stackA)->val == max)
+			{
+				stackops(list, stackA, stackB, PUSH + B);
+				stackops(list, stackA, stackB, ROT + B);
+			}
+			else if ((*stackA)->val < max * factor / 4)
+				stackops(list, stackA, stackB, PUSH + B);
+			else
+				stackops(list, stackA, stackB, ROT + A);
 		}
-		else if ((*stackA)->val >= n * 2 / 3)
-		{
-			stackops(list, stackA, stackB, PUSH + B);
-			stackops(list, stackA, stackB, ROT + B);
-			i++;
-		}
-		else
-			stackops(list, stackA, stackB, ROT + A);
+		n = ft_circular_lstsize(*stackA);
+		factor++;
 	}
-	while (*stackA)
-		stackops(list, stackA, stackB, PUSH + B);
 }
 
 static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
@@ -62,7 +62,10 @@ static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
 	int	temp;
 
 	temp = 0;
+	stackops(list, stackA, stackB, REV + B);
 	stackops(list, stackA, stackB, PUSH + A);
+	if ((*stackA)->val > (*stackA)->prev->val)
+		stackops(list, stackA, stackB, ROT + A);
 	while (*stackB)
 	{
 		temp = 0;
