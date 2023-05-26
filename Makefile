@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/05/24 14:24:02 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/05/26 11:37:36 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,10 @@ LIBFT		=	$(LIBFT_DIR)/$(LIBFT_LIB)
 VIS_GIT		=	https://github.com/o-reo/push_swap_visualizer.git
 VIS_DIR		=	./visualizer
 VIS_EXE		=	$(VIS_DIR)/build/bin/visualizer
+
+TESTER_GET	=	https://raw.githubusercontent.com/lorenuars19/push_swap_tester/main/push_swap_tester.pl
+TESTER		=	./ps_tester.pl
+
 
 all: $(NAME)
 
@@ -65,5 +69,19 @@ visclean:
 # $(VIS_EXE): $(VIS_DIR)
 # 	(cd $(VIS_DIR)/build && cmake .. && make)
 
+$(TESTER):
+	curl $(TESTER_GET) -o $(TESTER)
+
+3: $(NAME) $(TESTER)
+	perl $(TESTER) 3 100
+
+5: $(NAME) $(TESTER)
+	perl $(TESTER) 5 100
+
+100: $(NAME) $(TESTER)
+	perl $(TESTER) 100 100
+
+500: $(NAME) $(TESTER)
+	perl $(TESTER) 500 100
 
 .PHONY: all clean fclean re clean_obj

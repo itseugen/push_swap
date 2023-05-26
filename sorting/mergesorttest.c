@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:18:26 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/24 14:05:23 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:28:04 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	merge_sort_test(t_stack **list, t_stack **stackA, t_stack **stackB, int n)
 	sort_to_a(list, stackA, stackB);
 }
 
+/// !6 for 100 is sweet spot, 12 for 500
 /// @brief Brings all below div to B
 /// @param stackA 
 /// @param stackB 

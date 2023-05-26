@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:48:11 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/25 11:17:50 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:34:48 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	sorting(t_stack **stack1, t_stack **stack2)
 		sort_five(&list, stack1, stack2);
 	else if (lstsize < 16)
 		merge_sort(&list, stack1, stack2, lstsize);
-	// else
-	// 	merge_sort_test(&list, stack1, stack2, lstsize);
 	else
-		quicksort(&list, stack1, stack2);
+		merge_sort_test(&list, stack1, stack2, lstsize);
+	// else
+	// 	quicksort(&list, stack1, stack2, lstsize);
 	clean_list(&list);
 	print_list_str(list);
 	free_list(&list);
