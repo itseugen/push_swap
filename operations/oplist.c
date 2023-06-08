@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:03:32 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 17:04:48 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:25:13 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ void	clean_list(t_stack **stack)
 	while (doonce == 1 || (current->next != *stack && current != NULL))
 	{
 		doonce = 0;
-		if (ft_strncmp("rra", current->str, 3) == 0
-			&& ft_strncmp("ra", current->next->str, 2) == 0)
+		if ((ft_strncmp("rra", current->str, 3) == 0
+				&& ft_strncmp("ra", current->next->str, 2) == 0)
+			|| (ft_strncmp("ra", current->str, 2) == 0
+				&& ft_strncmp("rra", current->next->str, 3) == 0))
 		{
 			current = current->prev;
 			pop_next_two(&current);
