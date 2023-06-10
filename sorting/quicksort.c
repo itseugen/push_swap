@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 12:31:29 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/06/08 17:30:06 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:05:55 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static void	bring_to_b(t_stack **list, t_stack **stackA,
 				t_stack **stackB, int n);
-static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB);
-static int	best_way(t_stack **stackA, int n);
+static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB, int n);
+
+//!average 831,748 mergesorttest
 
 /// @brief Uses mergesort to sort stack A
 /// @param stackA 
@@ -24,101 +25,96 @@ static int	best_way(t_stack **stackA, int n);
 void	quicksort(t_stack **list, t_stack **stackA, t_stack **stackB, int n)
 {
 	bring_to_b(list, stackA, stackB, n);
-	sort_to_a(list, stackA, stackB);
+	sort_to_a(list, stackA, stackB, n);
 }
 
-/// !6 for 100 is sweet spot, 12 for 500
-/// @brief Brings all below div to B
-/// @param stackA 
-/// @param stackB 
-/// @param n amount of items in list
-/// @param div 4, 2, 1.5, 1 depending on what part we want to bring to b
 static void	bring_to_b(t_stack **list, t_stack **stackA,
 				t_stack **stackB, int n)
 {
 	int	i;
-	int	q1;
-	int	factor;
 
-	factor = 2;
 	i = 0;
-	q1 = n / 12;
-	while (i < q1)
+	while (i < (n / 2))
 	{
-		if ((*stackA)->val == n)
+		if ((*stackA)->val < n / 4)
 		{
+			i++;
 			stackops(list, stackA, stackB, PUSH + B);
 			stackops(list, stackA, stackB, ROT + B);
-			i++;
 		}
-		else if ((*stackA)->val <= q1)
+		else if ((*stackA)->val >= n / 4 && ((*stackA)->val <= n / 2))
 		{
-			stackops(list, stackA, stackB, PUSH + B);
 			i++;
+			stackops(list, stackA, stackB, PUSH + B);
 		}
 		else
 			stackops(list, stackA, stackB, ROT + A);
-		if (i == q1 && i != n)
+	}
+	while (ft_circular_lstsize(*stackA) > 1)
+	{
+		if ((*stackA)->val < n * 3 / 4)
 		{
-			q1 = n * factor / 12;
-			factor++;
+			i++;
+			stackops(list, stackA, stackB, PUSH + B);
+			stackops(list, stackA, stackB, ROT + B);
 		}
+		else if ((*stackA)->val >= n * 3 / 4 && ((*stackA)->val < n))
+		{
+			i++;
+			stackops(list, stackA, stackB, PUSH + B);
+		}
+		else
+			stackops(list, stackA, stackB, ROT + A);
 	}
 }
 
-static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
+static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB, int n)
 {
 	int	temp;
-	int	bway;
+	int	i;
 
-	temp = 0;
-	stackops(list, stackA, stackB, REV + B);
-	stackops(list, stackA, stackB, PUSH + A);
-	while (*stackB)
+	i = 0;
+	while (i < n / 4)
 	{
 		temp = 0;
-		if ((*stackB)->val > (*stackA)->val)
-			bway = best_way(stackA, (*stackB)->val);
-		while ((*stackB)->val > (*stackA)->val)
+		while ((*stackB)->val > (*stackA)->val
+			&& temp <= ft_circular_lstsize(*stackA))
 		{
-			if (bway == ROT + A)
-				stackops(list, stackA, stackB, ROT + A);
-			else if (bway == REV + A)
-				stackops(list, stackA, stackB, REV + A);
+			stackops(list, stackA, stackB, ROT + A);
 			temp++;
 		}
 		stackops(list, stackA, stackB, PUSH + A);
+		i++;
 		while (temp--)
+			stackops(list, stackA, stackB, REV + A);
+	}
+	while (i < n / 2)
+	{
+		temp = 0;
+		stackops(list, stackA, stackB, REV + B);
+		while ((*stackB)->val > (*stackA)->val
+			&& temp <= ft_circular_lstsize(*stackA))
 		{
-			if (bway == ROT + A)
-				stackops(list, stackA, stackB, REV + A);
-			else if (bway == REV + A)
-				stackops(list, stackA, stackB, ROT + A);
+			stackops(list, stackA, stackB, ROT + A);
+			temp++;
 		}
+		stackops(list, stackA, stackB, PUSH + A);
+		i++;
+		while (temp--)
+			stackops(list, stackA, stackB, REV + A);
 	}
-}
-
-static int	best_way(t_stack **stackA, int n)
-{
-	t_stack	*current;
-	int		ra;
-	int		rra;
-
-	ra = 1;
-	rra = 1;
-	current = (*stackA)->next;
-	while (current->val < n && current != *stackA)
+	while ((*stackB) != NULL)
 	{
-		ra++;
-		current = current->next;
+		temp = 0;
+		while ((*stackB)->val > (*stackA)->val
+			&& temp <= ft_circular_lstsize(*stackA))
+		{
+			stackops(list, stackA, stackB, ROT + A);
+			temp++;
+		}
+		stackops(list, stackA, stackB, PUSH + A);
+		i++;
+		while (temp--)
+			stackops(list, stackA, stackB, REV + A);
 	}
-	current = (*stackA)->prev;
-	while (current->val < n && current != *stackA)
-	{
-		rra++;
-		current = current->prev;
-	}
-	if (rra < ra)
-		return (REV + A);
-	return (ROT + A);
 }
