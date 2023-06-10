@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 13:36:25 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 17:04:40 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:47:13 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,3 @@ void	free_list(t_stack **stack)
 	free(current_node);
 	*stack = NULL;
 }
-
