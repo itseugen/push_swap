@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   mergesort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:17:40 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:46:26 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 14:23:06 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,9 @@ static void	sort_to_a(t_stack **list, t_stack **stackA, t_stack **stackB)
 	{
 		temp = 0;
 		while ((*stackB)->val > (*stackA)->val
-			&& temp <= ft_circular_lstsize(*stackA))
+			&& temp++ <= ft_circular_lstsize(*stackA))
 		{
 			stackops(list, stackA, stackB, ROT + A);
-			temp++;
 		}
 		stackops(list, stackA, stackB, PUSH + A);
 		while (temp--)
