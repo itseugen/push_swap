@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/06/19 12:12:41 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/07/17 13:30:13 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-
 SOURCE = push_swap.c ./operations/push_a_b.c testers.c ./operations/stack_init.c ./operations/helpers.c\
 		./operations/onetilln.c ./operations/listops.c ./operations/rotate.c  ./operations/stackops.c ./operations/issorted.c\
 		./operations/oplist.c ./operations/swap.c

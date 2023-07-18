@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:43:45 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:43:07 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 10:55:16 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	convertvals(t_stack *stack)
 		current = current->next;
 		i++;
 	}
+	free(temp);
 	return (0);
 }
 
