@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/24 14:06:16 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:26:06 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_argv(int argc, char *argv[])
 // if random fail, make sure calloc is size * 2 +1 and is a prime
 // and do it out of the calloc since we do modulo size
 //!maybe convert to 1 - n before using
-//!Make size the next prime >size!!!
+//!Make size the next prime >size!!!d
 
 int	check_duplicates(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/07/18 14:32:50 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/07/18 15:25:31 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ SOURCE = push_swap.c ./operations/push_a_b.c testers.c ./operations/stack_init.c
 		./operations/oplist.c ./operations/swap.c
 SOURCE+= ./sorting/mergesort.c ./sorting/sorting.c ./sorting/mergesortlarge.c
 SOURCE+= ./checks/check_input.c ./checks/ps_atoi.c
+
+OBJDIR = ./objects
+OBJS = $(patsubst %.c,$(OBJDIR)/%.o,$(SOURCES))
 
 OBJS = $(SOURCE:.c=.o)
 
@@ -37,12 +40,16 @@ TESTER		=	./ps_tester.pl
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(SOURCE)
-	@cd libft && make
-	$(CC) $(CFLAGS) -o $(NAME) $(SOURCE) ./libft/libft.a
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	git clone $(LIBFT_GIT) $(LIBFT_DIR); make -C $(LIBFT_DIR)
+	@cd libft && make
 
 libclean:
 	rm -rf $(LIBFT_DIR)
