@@ -6,7 +6,7 @@
 #    By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 15:24:01 by eweiberl          #+#    #+#              #
-#    Updated: 2023/07/18 13:34:35 by eweiberl         ###   ########.fr        #
+#    Updated: 2023/07/18 14:25:21 by eweiberl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,17 +56,18 @@ fclean: clean
 
 re: fclean all
 
-vis: $(VISEXE)
+vis: $(VISEXE) $(NAME)
 	./visualizer/build/bin/visualizer 
 
 visclean:
 	rm -rf $(VIS_DIR)
 
-# $(VIS_DIR):
-# 	git clone $(VIS_GIT) $(VIS_DIR); (cd $(VIS_DIR) && mkdir build)
+$(VIS_DIR):
+	git clone $(VIS_GIT) $(VIS_DIR) 
+	cd $(VIS_DIR) && mkdir build
 
-# $(VIS_EXE): $(VIS_DIR)
-# 	(cd $(VIS_DIR)/build && cmake .. && make)
+$(VIS_EXE): $(VIS_DIR)
+	cd $(VIS_DIR)/build && cmake .. && make
 
 $(TESTER):
 	curl $(TESTER_GET) -o $(TESTER)
