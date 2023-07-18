@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:03:32 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/06/10 17:44:50 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:35:14 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 static void	replacetwo(t_stack **stack, char *op);
 static int	comparetwo(t_stack **stack, char *op1, char *op2);
 
+/// @brief pops the next to elements of a linked list
+/// @param stack 
 static void	pop_next_two(t_stack **stack)
 {
 	t_stack	*free1;
@@ -27,6 +29,8 @@ static void	pop_next_two(t_stack **stack)
 	free(free2);
 }
 
+/// @brief cleans unnecessary operations
+/// @param stack 
 void	clean_list(t_stack **stack)
 {
 	t_stack	*current;
@@ -53,6 +57,11 @@ void	clean_list(t_stack **stack)
 	}
 }
 
+/// @brief compares op1 and op2
+/// @param stack 
+/// @param op1 
+/// @param op2 
+/// @return 
 static int	comparetwo(t_stack **stack, char *op1, char *op2)
 {
 	if ((ft_strncmp(op1, (*stack)->str, ft_strlen(op1)) == 0
@@ -75,6 +84,10 @@ static void	replacetwo(t_stack **stack, char *op)
 	(*stack)->str = op;
 }
 
+/// @brief adds the string str to the back of the stack
+/// @param stack the stack
+/// @param str the string to add
+/// @return -1 if allocation fails, 1 on success
 int	add_back_str(t_stack **stack, char *str)
 {
 	t_stack	*new_node;

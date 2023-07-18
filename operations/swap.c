@@ -6,12 +6,15 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:08:25 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 17:27:01 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:38:54 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/// @brief swaps the first with the second node
+/// @param stack 
+/// @return 
 int	swap(t_stack **stack)
 {
 	t_stack	*first_node;

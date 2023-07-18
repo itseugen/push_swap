@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 16:48:11 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/18 13:05:19 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:39:31 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ static void	sort_three(t_stack **list, t_stack **stackA, t_stack **stackB);
 static void	sort_four(t_stack **list, t_stack **stackA, t_stack **stackB);
 static void	sort_five(t_stack **list, t_stack **stackA, t_stack **stackB);
 
+/// @brief Chooses the sorting alg, frees the memory
+/// @param stack1 
+/// @param stack2 
 void	sorting(t_stack **stack1, t_stack **stack2)
 {
 	t_stack	*list;

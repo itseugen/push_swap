@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 14:10:01 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/24 14:40:11 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:31:56 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 static void	exit_atoi(t_stack *stack, char **strings, size_t size);
 
+/// @brief checks for atoi overflow
+/// @param str 
+/// @param stack 
+/// @param strings 
+/// @param size 
+/// @return 
 int	atoi_control(char *str, t_stack *stack, char **strings, size_t size)
 {
 	int	i;

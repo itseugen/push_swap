@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:42:37 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 17:15:59 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:38:26 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,24 @@ static int	get_ops(t_stack **list, t_stack **stackA,
 static void	do_ops(t_stack **list, t_stack **stackA, t_stack **stackB, int id);
 static void	do_ops2(t_stack **list, t_stack **stackA, t_stack **stackB, int id);
 
+/// @brief handles the operations
+/// @param list 
+/// @param stackA 
+/// @param stackB 
+/// @param id 
+/// @return 
 int	stackops(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
 {
 	do_ops(list, stackA, stackB, id);
 	return (SUCCESS);
 }
 
+/// @brief adds the operation done to the back of the list of ops
+/// @param list 
+/// @param stackA 
+/// @param stackB 
+/// @param str 
+/// @return 0 on success
 static int	get_ops(t_stack **list, t_stack **stackA,
 		t_stack **stackB, char *str)
 {
@@ -36,6 +48,11 @@ static int	get_ops(t_stack **list, t_stack **stackA,
 	return (0);
 }
 
+/// @brief does the operations and calls function to add them to the list
+/// @param list list of operations
+/// @param stackA 
+/// @param stackB 
+/// @param id what operation to do
 static void	do_ops(t_stack **list, t_stack **stackA, t_stack **stackB, int id)
 {
 	if (id == (PUSH + A))

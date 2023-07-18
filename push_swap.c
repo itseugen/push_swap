@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/18 15:14:22 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:39:49 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,6 @@ TODO: rrr : rra and rrb at the same time.
 *malloc
 *free
 *exit
-*/
-
-/*
-! TODO: handle int > // < INT_MAX // INT_MIN
-! TODO: make merge sort more efficient
 */
 
 int	main(int argc, char *argv[])

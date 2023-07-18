@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/24 14:39:12 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:36:33 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 static t_stack	*init_split(char *str);
 
+/// @brief Puts the values into the stack
+/// @param argc 
+/// @param argv 
+/// @return the finished stack
 t_stack	*init_stack(int argc, char *argv[])
 {
 	int		i;
@@ -36,6 +40,9 @@ t_stack	*init_stack(int argc, char *argv[])
 	return (stack);
 }
 
+/// @brief Puts the values in the stack if argc=1
+/// @param str 
+/// @return returns the stack
 static t_stack	*init_split(char *str)
 {
 	char	**nbrs;
@@ -64,6 +71,9 @@ static t_stack	*init_split(char *str)
 	return (stack);
 }
 
+/// @brief frees the array of strings
+/// @param strings 
+/// @param size 
 void	free_split(char **strings, size_t size)
 {
 	size_t	i;

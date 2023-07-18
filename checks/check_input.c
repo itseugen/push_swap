@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/18 15:26:06 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:31:25 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 static int	isdigit_pm(char *s, int (*f)(int));
 static int	sum(int n);
 
+/// @brief checks if all args are digits
+/// @param argc 
+/// @param argv 
+/// @return 0 on correct input, 1 on wrong input
 int	check_argv(int argc, char *argv[])
 {
 	int	i;
@@ -29,11 +33,9 @@ int	check_argv(int argc, char *argv[])
 	return (0);
 }
 
-// if random fail, make sure calloc is size * 2 +1 and is a prime
-// and do it out of the calloc since we do modulo size
-//!maybe convert to 1 - n before using
-//!Make size the next prime >size!!!d
-
+/// @brief Checks for duplicates in the numbers
+/// @param stack the stack to check
+/// @return 0 on success, 1 on duplicates
 int	check_duplicates(t_stack *stack)
 {
 	int		lstsize;
@@ -56,6 +58,10 @@ int	check_duplicates(t_stack *stack)
 	return (WRONG_INPUT);
 }
 
+/// @brief checks if all inputs are digits, considering one =/-
+/// @param s the string to check
+/// @param f the function to check it with (could be reused with is alpha p. e)
+/// @return 1 if it isnt a digit, 0 if it is
 static int	isdigit_pm(char *s, int (*f)(int))
 {
 	unsigned int	i;

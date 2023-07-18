@@ -6,12 +6,15 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 14:19:25 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/05/16 16:42:03 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/18 15:32:43 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/// @brief gets the size of a circula linked list
+/// @param lst the list to check
+/// @return the size of the list, 0 if list is empty
 int	ft_circular_lstsize(t_stack *lst)
 {
 	int		i;
