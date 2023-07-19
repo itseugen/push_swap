@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:46:31 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:57:10 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_stack	*init_stack(int argc, char *argv[])
 			return (free_list(&stack), NULL);
 		i++;
 	}
-	print_list_int(stack);
 	return (stack);
 }
 
