@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:14:18 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:51:23 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_argv(int argc, char *argv[])
 		if (isdigit_pm(argv[i], ft_isdigit) == 0
 			&& ft_strchr(argv[i], ' ') == NULL)
 			return (WRONG_INPUT);
-	i++;
+		i++;
 	}
 	return (0);
 }

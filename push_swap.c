@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:15:07 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:53:15 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char *argv[])
 
 	stack1 = NULL;
 	stack2 = NULL;
-	if (argc <= 1 || (argc == 2 && check_argv(2, argv) != WRONG_INPUT))
+	if (argc <= 1)
 		return (FINISHED);
 	stack1 = init_stack(argc, argv);
 	if (stack1 == NULL)
