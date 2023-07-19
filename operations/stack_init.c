@@ -6,13 +6,13 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:02:51 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:40:06 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	init_split(char *str, t_stack *stack);
+static int	init_split(char *str, t_stack **stack);
 
 /// @brief Puts the values into the stack
 /// @param argc 
@@ -29,9 +29,9 @@ t_stack	*init_stack(int argc, char *argv[])
 		return (NULL);
 	while (i < argc)
 	{
-		if (ft_strchr(argv[i], ' '))
+		if (ft_strchr(argv[i], ' ') != NULL)
 		{
-			if (init_split(argv[i], stack) == 1)
+			if (init_split(argv[i], &stack) == 1)
 				return (free_list(&stack), NULL);
 		}
 		else if (push(&stack,
@@ -39,14 +39,13 @@ t_stack	*init_stack(int argc, char *argv[])
 			return (free_list(&stack), NULL);
 		i++;
 	}
-	print_list_int(stack);
 	return (stack);
 }
 
 /// @brief Puts the values in the stack if argc=1
 /// @param str 
 /// @return returns the stack
-static int	init_split(char *str, t_stack *stack)
+static int	init_split(char *str, t_stack **stack)
 {
 	char	**nbrs;
 	int		i;
@@ -63,8 +62,8 @@ static int	init_split(char *str, t_stack *stack)
 		return (free(nbrs), 1);
 	while (i < size)
 	{
-		if (push(&stack,
-				atoi_control(nbrs[i], stack, nbrs, size)) == ALLOC_FAIL)
+		if (push(stack,
+				atoi_control(nbrs[i], *stack, nbrs, size)) == ALLOC_FAIL)
 			return (free_split(nbrs, size), 1);
 		i++;
 	}
