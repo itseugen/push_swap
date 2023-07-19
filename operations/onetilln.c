@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:43:45 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/18 12:58:26 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/19 16:18:49 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ int	convertvals(t_stack *stack)
 	int		lstsize;
 	int		i;
 
-	i = 0;
+	i = -1;
 	lstsize = ft_circular_lstsize(stack);
 	temp = malloc(lstsize * sizeof(int));
 	if (temp == NULL)
 		return (ALLOC_FAIL);
 	current = stack;
-	while (i++ < lstsize)
+	while (++i < lstsize)
 	{
 		temp[i] = convertone(current);
 		current = current->next;
 	}
-	i = 0;
-	while (i++ < lstsize)
+	i = -1;
+	while (++i < lstsize)
 	{
 		current->val = temp[i];
 		current = current->next;

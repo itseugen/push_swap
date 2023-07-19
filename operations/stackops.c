@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:42:37 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/18 15:38:26 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:51:47 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	get_ops(t_stack **list, t_stack **stackA,
 		free_list(stackA);
 		free_list(stackB);
 		free_list(list);
+		ft_printf("Error\n");
 		exit(1);
 	}
 	return (0);
