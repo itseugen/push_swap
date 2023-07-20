@@ -6,13 +6,14 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:57:10 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/20 12:34:01 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 static int	init_split(char *str, t_stack **stack);
+int			check_argv_split(int argc, char *argv[]);
 
 /// @brief Puts the values into the stack
 /// @param argc 
@@ -58,7 +59,7 @@ static int	init_split(char *str, t_stack **stack)
 		return (1);
 	while (nbrs[size] != NULL)
 		size++;
-	if (check_argv(size, nbrs) == WRONG_INPUT)
+	if (check_argv_split(size, nbrs) == WRONG_INPUT)
 		return (free(nbrs), 1);
 	while (i < size)
 	{
@@ -86,7 +87,6 @@ void	free_split(char **strings, size_t size)
 	}
 	free(strings);
 }
-
 
 /*
 t_stack	*init_stack(int argc, char *argv[])

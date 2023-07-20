@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:05:53 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:51:23 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/20 12:33:35 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,19 @@ static int	sum(int n)
 		i++;
 	}
 	return (sum);
+}
+
+int	check_argv_split(int argc, char *argv[])
+{
+	int	i;
+
+	i = 0;
+	while (i < argc)
+	{
+		if (isdigit_pm(argv[i], ft_isdigit) == 0
+			&& ft_strchr(argv[i], ' ') == NULL)
+			return (WRONG_INPUT);
+		i++;
+	}
+	return (0);
 }
