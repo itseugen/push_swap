@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 17:36:07 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/20 12:34:01 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:54:18 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	init_split(char *str, t_stack **stack)
 	while (nbrs[size] != NULL)
 		size++;
 	if (check_argv_split(size, nbrs) == WRONG_INPUT)
-		return (free(nbrs), 1);
+		return (free_split(nbrs, size), 1);
 	while (i < size)
 	{
 		if (push(stack,

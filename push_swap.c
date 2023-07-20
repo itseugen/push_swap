@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/19 17:53:15 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:53:47 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char *argv[])
 	if (convertvals(stack1) == ALLOC_FAIL)
 		return (free_list(&stack1), ft_printf("Error\n"), 1);
 	if (check_duplicates(stack1) == WRONG_INPUT)
-		return (purple(), ft_printf("Error\n"), WRONG_INPUT);
+		return (free_list(&stack1), purple(), ft_printf("Error\n"), WRONG_INPUT);
 	if (issorted(&stack1) == FINISHED)
 		return (free_list(&stack1), free_list(&stack2), FINISHED);
 	sorting(&stack1, &stack2);
