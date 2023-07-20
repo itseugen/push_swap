@@ -6,7 +6,7 @@
 /*   By: eweiberl <eweiberl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:49:42 by eweiberl          #+#    #+#             */
-/*   Updated: 2023/07/20 13:53:47 by eweiberl         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:05:25 by eweiberl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ TODO: rrr : rra and rrb at the same time.
 *free
 *exit
 */
+
+void	leaks_check(void)
+{
+	yellow();
+	system("leaks push_swap");
+	white();
+}
 
 int	main(int argc, char *argv[])
 {
