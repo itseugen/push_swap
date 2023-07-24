@@ -34,6 +34,9 @@ Coded in
 	For this project I use a own version of the Mergesort alghorithm. I cut the stack into multiple smaller chunks which I then push to stack B after another. I then push the largest element back to A before pushing everything back to A. Before printing out my operations I clean redundant operations (p. e. "rra" and "ra" afterwards).
 </p>
 
+## Input:
+The input has to be a valid integer, as per requirements, doubles are not tolerated. If any input is too big/small for an integer, a duplicate or not a number, the program will print "Error" to the console before exiting. If no number is given or the numbers are already sorted, the program will output nothing and exit.
+
 ---
 ## Installation and Usage
 1. Clone the repository:
@@ -44,6 +47,10 @@ git clone https://github.com/itseugen/push_swap
 ```shell
 cd push_swap
 make
+```
+3. Run the program with numbers of your choice:
+```shell
+./push_swap <nbrs>
 ```
 Optional: Open the visualiser (not by me, CMake necessary):
 ```shell
