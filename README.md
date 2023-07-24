@@ -35,7 +35,7 @@ Coded in
 </p>
 
 ## Input:
-The input has to be a valid integer, as per requirements, doubles are not tolerated. If any input is too big/small for an integer, a duplicate or not a number, the program will print "Error" to the console before exiting. If no number is given or the numbers are already sorted, the program will output nothing and exit.
+Each number has to be a valid integer, as per requirements, doubles are not tolerated. If any input is too big/small for an integer, a duplicate or not a number, the program will print "Error" to the console before exiting. If no input is given or the numbers are already sorted, the program will output nothing and exit.
 
 ---
 ## Installation and Usage
